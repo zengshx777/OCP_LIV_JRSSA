@@ -5,15 +5,14 @@ library(R2jags)
 source("Data_Reading.R")
 #Loading the definition for model in JAGS
 ##Choose the sensitivity parameter here
-#delta=seq(-1,1,length=20)
-delta=0.05
+##delta=0.05
 source("JAGS_Model_SA.R")
 
 #Define Logit function
 logit<-function(x){1/(1+exp(-x))}
 for (res in 1:3){
 #Reformat Data to be suitable for JAGS Modeling
-source("DataLoading.R")  
+source("Data_Loading.R")  
 covariate_index<-c("meduy","feduy","age","han")
   for (i in 1:4){
     #Response Level:Number of Categories observed

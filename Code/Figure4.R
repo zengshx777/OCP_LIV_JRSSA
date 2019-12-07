@@ -1,4 +1,4 @@
-load("PS_Posterior_Collected.RData")
+load("Figure4.RData")
 pdf("Pos_PS_confidence.pdf",width=8,height = 6)
 F1=ecdf(PS_pos_mean[[1]])
 plot(F1,

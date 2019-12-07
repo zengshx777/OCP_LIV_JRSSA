@@ -10,7 +10,7 @@ source("JAGS_MODEL.R")
 logit<-function(x){1/(1+exp(-x))}
 for (res in 1:3){
 #Reformat Data to be suitable for JAGS Modeling
-source("DataLoading.R")  
+source("Data_Loading.R")  
 covariate_index<-c("meduy","feduy","age","han")
   for (i in 1:4){
     #Response Level:Number of Categories observed

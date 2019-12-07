@@ -1,7 +1,7 @@
 library("reshape2") # needed for melt()
 library("ggplot2")
 #Codes Below Produce Figure 4 in the Paper
-load("Figure4.RData")
+load("Figure2.RData")
 
 #Transform From List to Long Vector
 MTE=MTE_up=MTE_low=NULL
