@@ -1,4 +1,4 @@
-load("Sensitivity_Analysis.RData")
+load("Figure6.RData")
 group_name=c("rural female","rural male","urban female","urban male")
 res_name=c("confidence measure","anxiety measure","desperate measure")
 for (res_id in c(1,2,3))
