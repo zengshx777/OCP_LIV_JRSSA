@@ -7,7 +7,7 @@ for (res_id in c(1,2,3))
   {
     pdf(paste("SA",res_id,subgroup,"stack.pdf",sep="_"),width=12,height=6)
     par(mfrow=c(1,2))
-    res=SA_prte[[res_id]][,(subgroup-1)*3+c(1,2,3)]  
+    res=SA_prte[[res_id]][,(subgroup-1)*3+c(1,2,3)]
     plot(r_grid,res[,1],ylim=range(res),type='o',xaxt='n',
          xlab="Ratio of direct effect/total effect, r",ylab="Treatment Effect",
          main=paste("Sensitivity analysis on PRTE\n",res_name[res_id],",",group_name[subgroup],sep=""))
@@ -16,8 +16,10 @@ for (res_id in c(1,2,3))
     lines(r_grid,res[,3],lty=2)
     abline(h=0,lty=2)
     abline(v=0,lty=2)
+    
+    
 
-    res=SA_prte[[res_id]][,(subgroup-1)*3+c(1,2,3)]      
+    res=SA_att[[res_id]][,(subgroup-1)*3+c(1,2,3)]
     plot(r_grid,res[,1],ylim=range(res),type='o',xaxt='n',
          xlab="Ratio of direct effect/total effect, r",ylab="Treatment Effect",
          main=paste("Sensitivity analysis on ATT\n",res_name[res_id],",",group_name[subgroup],sep=""))
@@ -26,6 +28,7 @@ for (res_id in c(1,2,3))
     lines(r_grid,res[,3],lty=2)
     abline(h=0,lty=2)
     abline(v=0,lty=2)
+    
     dev.off()
   }
 }
