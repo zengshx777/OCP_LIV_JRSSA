@@ -1,3 +1,4 @@
+##Draw Figure 6 in the paper
 load("Figure6.RData")
 group_name=c("rural female","rural male","urban female","urban male")
 res_name=c("confidence measure","anxiety measure","desperate measure")

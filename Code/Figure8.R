@@ -1,4 +1,5 @@
 ##Summary Simulation results
+##Draw Figure 8 in the paper.
 bias_ols_compare=rep(0,10)
 bias_2sls_compare=rep(0,10)
 bias_liv1_compare=rep(0,10)

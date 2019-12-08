@@ -1,6 +1,6 @@
 library("reshape2") # needed for melt()
 library("ggplot2")
-#Codes Below Produce Figure 4 in the Paper
+#Codes Below Produce Figure 2 in the Paper
 load("Figure2.RData")
 
 #Transform From List to Long Vector

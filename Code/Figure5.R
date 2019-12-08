@@ -1,5 +1,5 @@
-#Produce Figure 8
-load("Figure3.RData")
+#Produce Figure 5
+library(ggplot2)
 load("Figure5.RData")
 par(mfrow=c(3,1), mar = c(2,4,1.5,0))
 

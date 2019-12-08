@@ -1,4 +1,4 @@
-#Produce Figure 5 in the paper.
+#Produce Figure 3 in the paper.
 load("Figure3.RData")
 
 library(ggplot2)

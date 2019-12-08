@@ -9,7 +9,7 @@ source("OtherMethods_Fun.R")
 
 for (res in 1:3)
 {
-  source("DataLoading.R") 
+  source("Data_Loading.R") 
   for (i in 1:4)
 {
 temp.data<-data.jags[[i]]
@@ -96,3 +96,45 @@ for (i in 1:4)
   row.names(R_MATRIX)=c("OLS","Matching","IPW","Double Robust","2SLS")
   T_MATRIX<-rbind(T_MATRIX,R_MATRIX)
 }
+
+#####Miranda (2006) Selection Method, not include in the paper
+# library(sampleSelection)
+# 
+# collected=NULL
+# for (res in 1:3)
+# {
+#   source("Data_Loading.R") 
+#   for (i in 1:4)
+#   {
+#     temp.data<-data.jags[[i]]
+#     temp.data$y<-as.factor(temp.data[,response_index[res]])
+#     temp.data$group<-as.factor(temp.data$rd.ind)
+#     ylevel=length(unique(temp.data$y))
+#     if(res==1){
+#       model=summary(selection(onechild~meduy+ifppr+feduy+age+han,
+#                               factor(qm404)~onechild+meduy+feduy+age+han,
+#                               boundaries = c(0.5,1.5,2.5,3.5,4.5,5.5),
+#                               type=2,
+#                               temp.data))
+#     }
+#     else if(res==2){
+#       model=summary(selection(onechild~meduy+ifppr+feduy+age+han,
+#                               factor(qq603)~onechild+meduy+feduy+age+han,
+#                               boundaries = c(0.5,1.5,2.5,3.5,4.5,5.5),
+#                               type=2,
+#                               temp.data))
+#     }else{
+#       model=summary(selection(onechild~meduy+ifppr+feduy+age+han,
+#                               factor(qq604)~onechild+meduy+feduy+age+han,
+#                               boundaries = c(0.5,1.5,2.5,3.5,4.5,5.5),
+#                               type=2,
+#                               temp.data))
+#       
+#     }
+#     
+#     
+#     est=model$estimate['onechild',c(1,2)]
+#     collected=rbind(collected,c(est[1],est[1]+1.96*est[2],est[1]-1.96*est[2]))
+#   }
+# }
+#save(mle_iv,T_MATRIX,file="Figure5RData")
