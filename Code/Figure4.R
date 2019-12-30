@@ -3,8 +3,8 @@ pdf("Pos_PS_confidence.pdf",width=8,height = 6)
 F1=ecdf(PS_pos_mean[[1]])
 plot(F1,
      xlab = "Principal strata",
-     ylab = "CDF",
-     main = "Cumulative distribution function of imputed principal strata")
+     ylab = "Cumulativa distribution function",
+     main="")
 abline(v=c(0,140),lty=2)
 F2=ecdf(PS_pos_mean[[2]])
 lines(F2,col="red")
@@ -22,8 +22,7 @@ pdf("Pos_PS_confidence_rf.pdf",width=8,height=6)
 F1=ecdf(PS_pos_mean[[1]])
 plot(F1,
      xlab = "Principal strata",
-     ylab = "CDF",
-     main = "Cumulative distribution function of imputed principal strata")
+     ylab = "Cumulativa distribution function")
 abline(v=c(0,140),lty=2)
 dev.off()
 
@@ -33,8 +32,7 @@ pdf("Pos_PS_anxiety.pdf",width=8,height = 6)
 F1=ecdf(PS_pos_mean[[5]])
 plot(F1,
      xlab = "Principal strata",
-     ylab = "CDF",
-     main = "Cumulative distribution function of imputed principal strata\n anxiety measure")
+     ylab = "Cumulativa distribution function")
 abline(v=c(0,140),lty=2)
 F2=ecdf(PS_pos_mean[[6]])
 lines(F2,col="red")
@@ -52,8 +50,7 @@ pdf("Pos_PS_anxiety_rf.pdf",width=8,height=6)
 F1=ecdf(PS_pos_mean[[5]])
 plot(F1,
      xlab = "Principal strata",
-     ylab = "CDF",
-     main = "Cumulative distribution function of imputed principal strata\n anxiety measure")
+     ylab = "Cumulative distribution function")
 abline(v=c(0,140),lty=2)
 dev.off()
 
@@ -61,8 +58,7 @@ pdf("Pos_PS_desperation.pdf",width=8,height = 6)
 F1=ecdf(PS_pos_mean[[9]])
 plot(F1,
      xlab = "Principal strata",
-     ylab = "CDF",
-     main = "Cumulative distribution function of imputed principal strata\n desperation measure")
+     ylab = "Cumulative distribution function")
 abline(v=c(0,140),lty=2)
 F2=ecdf(PS_pos_mean[[10]])
 lines(F2,col="red")
@@ -80,8 +76,7 @@ pdf("Pos_PS_desperation_rf.pdf",width=8,height=6)
 F1=ecdf(PS_pos_mean[[9]])
 plot(F1,
      xlab = "Principal strata",
-     ylab = "CDF",
-     main = "Cumulative distribution function of imputed principal strata\n desperation measure")
+     ylab = "Cumulative distribution function")
 abline(v=c(0,140),lty=2)
 dev.off()
 
