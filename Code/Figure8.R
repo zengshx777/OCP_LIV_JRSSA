@@ -34,20 +34,21 @@ for (i in 1:10)
   var_liv2_compare[i]=sd(simu_result[,6])
 }
 
-
-pdf("Bias_simu.pdf",width=8,height=6)
+pdf("simu_result.pdf",width=12,height=6)
+par(mfrow=c(1,2))
+#pdf("Bias_simu.pdf",width=8,height=6)
 plot(abs(h_grid),bias_2sls_compare-bias_liv2_compare,type='o',
-     ylab="Advantage over bias",
-     xlab="Heterogeneity degree,h",lty=4,main="Absolute bias comparison as heterogeneity increasing")
+     ylab="Advantage over absolute bias",
+     xlab="h",lty=4)
 lines(abs(h_grid),bias_ols_compare-bias_liv1_compare,type='o')
 abline(h=0,lty=2)
 legend("bottomright",legend=c("OLS-LIV","2SLS-LIV"),lty=c(1,4))
-dev.off()
+#dev.off()
 
-pdf("MSE_simu.pdf",width=8,height=6)
+#pdf("MSE_simu.pdf",width=8,height=6)
 plot(abs(h_grid),mse_2sls_compare-mse_liv2_compare,type='o',
-     ylab=expression("Advantage over"+sqrt(MSE)),
-     xlab="Heterogeneity degree,h",lty=4,main=expression(sqrt(MSE)+"comparison as heterogeneity increasing"))
+     ylab=expression("Advantage over RMSE"),
+     xlab="h",lty=4)
 lines(abs(h_grid),mse_ols_compare-mse_liv1_compare,type='o')
 abline(h=0,lty=2)
 legend("bottomright",legend=c("OLS-LIV","2SLS-LIV"),lty=c(1,4))

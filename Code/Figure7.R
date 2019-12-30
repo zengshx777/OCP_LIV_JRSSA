@@ -2,7 +2,7 @@
 #pdf("Figure7.pdf")
 threshold<-seq(0,1,length=100)
 vt<-qnorm(threshold,0,1)
-plot(threshold,-0.9*vt,type="l",lty=2,lwd=2,col="grey",ylab="Marginal Treatment Effect",main="Heterogenous Effect")
+plot(threshold,-0.9*vt,type="l",lty=2,lwd=2,col="grey",ylab="Marginal treatment effect",xlab=expression('S'[i]))
 lines(threshold,-0.1*vt,lty=3,lwd=2,col="red")
 lines(threshold,-0.3*vt,lty=4,lwd=2,col="blue")
 lines(threshold,-0.5*vt,lty=5,lwd=2,col="green")
