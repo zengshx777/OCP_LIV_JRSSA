@@ -1,5 +1,5 @@
 ###Figure 7 plotting
-#pdf("Figure7.pdf")
+pdf("Orahet.pdf",width=12,height=8)
 threshold<-seq(0,1,length=100)
 vt<-qnorm(threshold,0,1)
 plot(threshold,-0.9*vt,type="l",lty=2,lwd=2,ylab="Marginal treatment effect",xlab=expression('S'[i]))
@@ -9,4 +9,4 @@ lines(threshold,-0.5*vt,lty=5,lwd=2)
 lines(threshold,-0.7*vt,lty=6,lwd=2)
 legend("topright",legend=c("h=-0.1","h=-0.3","h=-0.5","h=-0.7","h=-0.9"),lty=c(3,4,5,6,2),lwd=2,cex=0.7)
 abline(h=0,lty=2)
-#dev.off()
+dev.off()

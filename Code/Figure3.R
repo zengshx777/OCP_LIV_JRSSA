@@ -20,11 +20,11 @@ df <- data.frame(
                 #Values of Point
                 #Point Estimation for the Estimands
                 Values=c(
-                 c(TAU[,4],TAU[,1]),
+                 c(TAU[,1],TAU[,4]),
                 #Upper Bound 
-                c(TAU[,6],TAU[,3]),
+                c(TAU[,3],TAU[,6]),
                 #Lower Bound
-                c(TAU[,5],TAU[,2])),
+                c(TAU[,2],TAU[,5])),
                 #Indicate Whether is tau,rho,eta
                 name=c(rep("tau",72)),
                 #Measures Names
