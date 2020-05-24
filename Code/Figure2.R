@@ -1,7 +1,7 @@
 library("reshape2") # needed for melt()
 library("ggplot2")
 #Codes Below Produce Figure 2 in the Paper
-load("Figure2.RData")
+load("Figure.RData")
 
 #Transform From List to Long Vector
 MTE=MTE_up=MTE_low=NULL
@@ -37,7 +37,7 @@ p4<-ggplot(df, aes(Grid)) +
   facet_grid(measure.f~ruralgender) +
   # Add horizontal lines at 0
   geom_hline(yintercept=0, linetype="dotdash",alpha=0.5) +
-  labs(title = "", x = "", y="",
+  labs(title = "", x = "Quantile of principal strata", y="MTE",
        shape="", color="") +
   # Choose a grayscale palette
   scale_color_grey() +
@@ -49,9 +49,9 @@ p4<-ggplot(df, aes(Grid)) +
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         legend.position="none")
-#pdf(file = "Expected_MTE.pdf",height=6,width=8.5)
+pdf(file = "Expected_MTE.pdf",height=6,width=8.5)
 p4
-#dev.off()
+dev.off()
 
 
 

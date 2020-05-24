@@ -1,4 +1,4 @@
-load("Figure4.RData")
+load("Figure.RData")
 pdf("Pos_PS_confidence.pdf",width=8,height = 6)
 unique_grid=sort(PS_pos_mean[[1]])
 F1=ecdf(PS_pos_mean[[1]])

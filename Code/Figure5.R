@@ -1,6 +1,5 @@
 #Produce Figure 5
-library(ggplot2)
-load("Figure5.RData")
+load("Figure.RData")
 par(mfrow=c(3,1), mar = c(2,4,1.5,0))
 
 #Result by method*subgroup*measure*(est,low,up)
@@ -20,7 +19,7 @@ grid=c(rep(xgrid[1],each=36),rep(xgrid[2],each=36),
 type=c(rep(c(6,1,2),12),rep(c(7,1,2),12),rep(c(8,1,2),12))
 #Group to Draw Liness
 pair=as.vector(t(cbind(seq(1,143,length=36),seq(2,144,length=36),
-                     seq(2,144,length=36))))
+                       seq(2,144,length=36))))
 #Measures
 measure=rep(rep(c("Confidence","Anxiety","Desperation"),each=12),3)
 #Subgroup
@@ -43,7 +42,7 @@ p7<-ggplot(df, aes(x=Grid, y=Values,group=pairs)) +
   scale_shape_manual(values=c(32,32,1,9,12),
                      labels=c("","","OLS","2SLS","Bayesian LIV"))+
   # Provide breakpoints and respective labelings for the x-axis
- #scale_x_continuous(breaks=xgrid, labels=c("OLS","MATCH","IPW","DR","2SLS","BAYES"))+
+  #scale_x_continuous(breaks=xgrid, labels=c("OLS","MATCH","IPW","DR","2SLS","BAYES"))+
   # Lay out plots in a grid fomat, with "measure" used as the vertical
   # facet group and "ruralgender" used as the horizontal facet group
   facet_grid(measure~ruralgroup) +
@@ -51,7 +50,7 @@ p7<-ggplot(df, aes(x=Grid, y=Values,group=pairs)) +
   geom_hline(aes(yintercept= 0), linetype="dotdash",alpha=0.5)+
   # Add labels. Note that to rename the legend, you have to rename both the
   # "shape" and the "color" variables.
-  labs(title = "", x = "", y="",
+  labs(title = "", x = "", y="Treatment effect",
        shape="") +
   # Choose a grayscale palette
   scale_color_grey() +

@@ -21,7 +21,7 @@ ylevel=length(unique(temp.data$y))
 tryCatch({
 #Direct Modeling (Ordinal Probit)
 #Outcome Formula
-out.formula=as.formula("y~meduy+feduy+age+onechild+han+onechild*meduy+
+out.formula=as.formula("y~meduy+feduy+age+onechild+han+fincome+mage_birth+fage_birth+divorce+remarriage+qb1+onechild*meduy+
                    onechild*feduy+onechild*age+onechild*han")
 
 model_dir<-clmm2(out.formula,random=group,

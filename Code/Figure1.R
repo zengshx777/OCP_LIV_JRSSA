@@ -1,7 +1,7 @@
 #Codes Below Produce Figure 1 in the Paper
-load("Figure1.RData")
-#pdf("Firstage_Prob_Quantile.pdf",height=4,width= 8)
-par(mfrow=c(1, 1),mar = c(2,4.5,0,0))
+load("Figure.RData")
+pdf("Firstage_Prob_Quantile.pdf",height=4,width= 8)
+par(mfrow=c(1, 1),mar = c(4.5,4.5,0,0))
 #Index to Draw Points Along the Line
 index=seq(1,1000,by=100)
 #Create a Grid of Quantile for the IV
@@ -25,4 +25,4 @@ lines(z.quantile,newz.p[,4],type='l',lty=1,lwd=2)
 points(z.quantile[index],newz.p[index,4],pch=6,cex=1)
 legend("topleft",legend=Subgroup.name,lty=1,pch=c(1,2,5,6),cex=0.7)
 
-#dev.off()
+dev.off()
