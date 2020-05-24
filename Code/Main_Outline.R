@@ -33,11 +33,5 @@ for (h in h_grid){
 }
 
 #Figures Reproduce
-source("Figure1.R")
-source("Figure2.R")
-source("Figure3.R")
-source("Figure4.R")
-source("Figure5.R")
-source("Figure6.R")
-source("Figure7.R")
+source("Figureplotting.R")
 #source("Figure8.R")
