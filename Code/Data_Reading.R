@@ -1,6 +1,6 @@
 #This Script preprocess the data for subsequent analysis
 #adult2010<-read.dta13("CFPS_2010_Adult_Clean_0714.dta")
-load("../Data/CFPS_Cleaned_Data.RData")
+load("../Data/CFPS_2010_Data.RData")
 #read the data of instrument variable
 ifppr<-read.table("../Data/IFPPR.txt",header=TRUE)
 #Unify the name of province variable
