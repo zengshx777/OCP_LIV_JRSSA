@@ -45,7 +45,7 @@ for (seed in 1:simu_time){
   
   simu_result[seed,]=c(true_att,ols_estimate,bliv_att_estimate,
                        true_prte,iv_estimate,bliv_prte_estimate)
-  print(paste("==",simu_time,"=="))
+  print(paste("==",seed,"=="))
 }
 save(simu_result,file=paste("simu",h,"result.RData",sep="_"))
 

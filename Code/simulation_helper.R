@@ -1,6 +1,6 @@
 library(truncnorm)
 library(MASS)
-simulation_data<-function(c_1=-0.5,t1=0.3,t2=-0.5,varz=1,size=4000)
+simulation_data<-function(c_1=-0.5,t1=0.3,t2=-0.5,varz=1,size=200)
 {
   ###t2 control the heterogeneity
   ###t1 control the correlation between Y1,Y0

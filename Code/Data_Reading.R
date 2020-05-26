@@ -60,4 +60,16 @@ data.jags=data.combine
 # )})
 # apply(subset(data1,onechild==0)[,covariate_index],2,FUN=function(x){sd(x,na.rm = T
 # )})
+# outcome_table=NULL
+# outcome_table=rbind(apply(data1[,response_index],2,FUN=function(x){mean(x,na.rm = T
+# )}),
+# apply(data1[,response_index],2,FUN=function(x){sd(x,na.rm = T)}),
+# apply(subset(data1,onechild==1)[,response_index],2,FUN=function(x){mean(x,na.rm = T
+# )}),
+# apply(subset(data1,onechild==1)[,response_index],2,FUN=function(x){sd(x,na.rm = T
+# )}),
+# apply(subset(data1,onechild==0)[,response_index],2,FUN=function(x){mean(x,na.rm = T
+# )}),
+# apply(subset(data1,onechild==0)[,response_index],2,FUN=function(x){sd(x,na.rm = T
+# )}))
 
