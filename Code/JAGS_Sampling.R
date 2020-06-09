@@ -11,8 +11,14 @@ logit<-function(x){1/(1+exp(-x))}
 for (res in 1:3){
 #Reformat Data to be suitable for JAGS Modeling
 source("Data_Loading.R")  
-covariate_index<-c("meduy","feduy","age","han")
+  covariate_index<-c("meduy","feduy","age","han","fincome","fage_birth","qb1",
+                     "mage_birth","divorce","remarriage","younger_brother")
   for (i in 1:4){
+    #Covariate filtering for Females subgroup
+    if(i==2||i==4)
+    {
+      covariate_index=covariate_index[-length(covariate_index)]
+    }
     #Response Level:Number of Categories observed
     res.level=length(unique(data.jags[[i]][,response_index[res]]))
     

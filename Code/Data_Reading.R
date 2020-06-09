@@ -28,7 +28,7 @@ data_11=subset(data1,urban_3==1&gender==1)
 #Codebook for Variable Name
 #Notice that sampling weight (national combined weight) is included
 #covariate_index<-c("meduy","feduy","age","han","rswt_nat")
-covariate_index<-c("meduy","feduy","age","han","fincome","fage_birth","qb1",
+covariate_index<-c("meduy","feduy","age","han","fincome","fage_birth","qb1","younger_brother",
                    "mage_birth","divorce","remarriage")
 response_index<-c("qm404","qq603","qq604")
 treatment_index<-"onechild"

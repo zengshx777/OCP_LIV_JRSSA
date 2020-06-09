@@ -13,7 +13,7 @@ simulation_data<-function(c_1=-0.5,t1=0.3,t2=-0.5,varz=1,size=200)
   b_11=2
   
   #first stage parameter
-  c_0=0
+  c_0=0.5
   
   
   #heterogeneity:cov(n,v)

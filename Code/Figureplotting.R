@@ -280,66 +280,24 @@ for (res_id in c(1,2,3))
   }
 }
 
-##Summary Simulation results
-##Draw Figure 7 in the paper.
-bias_ols_compare=rep(0,10)
-bias_2sls_compare=rep(0,10)
-bias_liv1_compare=rep(0,10)
-bias_liv2_compare=rep(0,10)
-mse_ols_compare=rep(0,10)
-mse_2sls_compare=rep(0,10)
-mse_liv1_compare=rep(0,10)
-mse_liv2_compare=rep(0,10)
-var_ols_compare=rep(0,10)
-var_2sls_compare=rep(0,10)
-var_liv1_compare=rep(0,10)
-var_liv2_compare=rep(0,10)
-h_grid=seq(0,-.9,length=10)
-#collection_simu=rep(list(NA),10)
-for (i in 1:10)
-{
-  simu_result=collection_simu[[i]]
-  bias_ols_compare[i]=abs(mean(simu_result[,2]-simu_result[,1]))
-  bias_2sls_compare[i]=abs(mean(simu_result[,5]-simu_result[,4]))
-  bias_liv1_compare[i]=abs(mean(simu_result[,3]-simu_result[,1]))
-  bias_liv2_compare[i]=abs(mean(simu_result[,6]-simu_result[,4]))
-  
-  mse_ols_compare[i]=sqrt(mean((simu_result[,2]-simu_result[,1])^2))
-  mse_2sls_compare[i]=sqrt(mean((simu_result[,5]-simu_result[,4])^2))
-  mse_liv1_compare[i]=sqrt(mean((simu_result[,3]-simu_result[,1])^2))
-  mse_liv2_compare[i]=sqrt(mean((simu_result[,6]-simu_result[,4])^2))
-  
-  var_ols_compare[i]=sd(simu_result[,2])
-  var_2sls_compare[i]=sd(simu_result[,5])
-  var_liv1_compare[i]=sd(simu_result[,3])
-  var_liv2_compare[i]=sd(simu_result[,6])
-}
-
-pdf("simu_result.pdf",width=8,height=4)
+###Simulation output
+pdf("simu_result.pdf",width=10,height=5)
 par(mfrow=c(1,2))
-#pdf("Bias_simu.pdf",width=8,height=6)
-plot(abs(h_grid),bias_2sls_compare-bias_liv2_compare,type='o',
-     ylab="Advantage over absolute bias",
-     xlab="h",lty=4)
-lines(abs(h_grid),bias_ols_compare-bias_liv1_compare,type='o')
-abline(h=0,lty=2)
-legend("bottomright",legend=c("OLS-Local IV","2SLS-Local IV"),lty=c(1,4))
+plot(abs(h_grid),ols_bias,type='o',
+     ylab="Absolute bias",ylim=c(0,1),
+     xlab="h",lty=2,lwd=1.5)
+lines(abs(h_grid),bliv_bias_att,type='o',lty=2,pch=2,lwd=1.5)
+lines(abs(h_grid),tsls_bias,type='o',lty=2,pch=4,lwd=1.5)
+lines(abs(h_grid),bliv_bias_prte,type='o',lty=2,pch=6,lwd=1.5)
+legend("topleft",legend=c("OLS","2SLS","Local IV-ATT","Local IV-PRTE"),lty=c(2,2,2,2),lwd=1.5,pch=c(1,4,2,6))
 #dev.off()
 
 #pdf("MSE_simu.pdf",width=8,height=6)
-plot(abs(h_grid),mse_2sls_compare-mse_liv2_compare,type='o',
-     ylab=expression("Advantage over RMSE"),
-     xlab="h",lty=4)
-lines(abs(h_grid),mse_ols_compare-mse_liv1_compare,type='o')
-abline(h=0,lty=2)
-legend("bottomright",legend=c("OLS-Local IV","2SLS-Local IV"),lty=c(1,4))
+plot(abs(h_grid),ols_rmse,type='o',
+     ylab="RMSE",ylim=c(0,1),
+     xlab="h",lty=2,lwd=1.5)
+lines(abs(h_grid),bliv_rmse_att,type='o',lty=2,pch=2,lwd=1.5)
+lines(abs(h_grid),tsls_rmse,type='o',lty=2,pch=4,lwd=1.5)
+lines(abs(h_grid),bliv_rmse_prte,type='o',lty=2,pch=6,lwd=1.5)
+# legend("topleft",legend=c("OLS","2SLS","Local IV-ATT","Local IV-PRTE"),lty=c(2,2,2,2),pch=c(1,2,4,6))
 dev.off()
-
-# plot(abs(h_grid),var_2sls_compare-var_liv2_compare,type='o',
-#      ylab=expression("Advantage over"+sqrt(MSE)),
-#      xlab="Heterogeneity degree,h",lty=4,main=expression(sqrt(MSE)+"comparison as heterogeneity increasing"))
-# lines(abs(h_grid),var_ols_compare-var_liv1_compare,type='o')
-# abline(h=0,lty=2)
-# legend("bottomright",legend=c("OLS-LIV","2SLS-LIV"),lty=c(1,4))
-# dev.off()
-
