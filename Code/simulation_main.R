@@ -1,15 +1,15 @@
 ###Gibbs Sampler for Bayes LIV method
 ###Input X,Y,Z,Tr
-###rm(list=ls())
+rm(list=ls())
 
-# args=commandArgs(trailingOnly = TRUE)
-# if(length(args)==0){
-#   print("No arguments supplied.")
-# }else{
-#   for(i in 1:length(args)){
-#     eval(parse(text=args[[i]]))
-#   }
-# }
+args=commandArgs(trailingOnly = TRUE)
+if(length(args)==0){
+  print("No arguments supplied.")
+}else{
+  for(i in 1:length(args)){
+    eval(parse(text=args[[i]]))
+  }
+}
 
 source("simulation_helper.R")
 set.seed(2019)
@@ -46,6 +46,7 @@ for (seed in 1:simu_time){
   simu_result[seed,]=c(true_att,ols_estimate,bliv_att_estimate,
                        true_prte,iv_estimate,bliv_prte_estimate)
   print(paste("==",seed,"=="))
+  save(simu_result,file=paste("simu",h,"result.RData",sep="_"))
 }
-save(simu_result,file=paste("simu",h,"result.RData",sep="_"))
+
 

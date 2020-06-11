@@ -27,10 +27,7 @@ for (delta in delta_grid){
 
 ##Simulation
 ##Heterogeneity Parameter
-h_grid=seq(0,-0.9,length=10)
-for (h in h_grid){
-  source("simulation_main.R")
-}
+## run bash script: bash simu.sh
 
 #Figures Reproduce
 source("Figureplotting.R")

@@ -4,14 +4,14 @@ library("ggplot2")
 #Codes Below Produce Figure 1 in the Paper
 load("Figure.RData")
 pdf("Firstage_Prob_Quantile.pdf",height=4,width= 8)
-par(mfrow=c(1, 1),mar = c(4.5,4.5,0,0))
+par(mfrow=c(1, 1),mar = c(4.5,4.5,0.5,0))
 #Index to Draw Points Along the Line
 index=seq(1,1000,by=100)
 #Create a Grid of Quantile for the IV
 z.quantile=seq(0,1,length=1000)
 plot(z.quantile,newz.p[,1],ylim=range(newz.p),type='l',lty=1,
      lwd=2,xlab="Quantile of the IFPPR",
-     ylab="Probability of Being the Only Child",
+     ylab="Probability of being an only child",
      main="",
      yaxt = "n", xaxt = "n", axes = F)
 axis(1, at = seq(0, 1, 0.1), 
@@ -46,10 +46,10 @@ df <- data.frame(Grid=rep(seq(0.01,0.99,length=100),12),
                  MTE = MTE,
                  MTE_low = MTE_low,
                  MTE_up = MTE_up,
-                 ruralgender = rep(rep(c("Rural Female", 
-                                         "Rural Male", 
-                                         "Urban Female", 
-                                         "Urban Male"), each=100), 3),
+                 ruralgender = rep(rep(c("Rural female", 
+                                         "Rural male", 
+                                         "Urban female", 
+                                         "Urban male"), each=100), 3),
                  measure = rep(c("Confidence", "Anxiety", "Desperation"), each=400))
 df$measure.f=factor(df$measure,levels=c("Confidence","Anxiety","Desperation"))
 
